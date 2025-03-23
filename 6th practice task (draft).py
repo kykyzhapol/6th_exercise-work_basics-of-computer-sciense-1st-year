@@ -1,3 +1,4 @@
+'''
 #1ts
 import math as m
 
@@ -89,3 +90,33 @@ else:
     print('ошибка')
 
 print(first_let, second_let)
+
+#6th
+atr = list(map(int, input().split()))
+print(round(atr[2]*(atr[0]*2)/atr[1]))
+
+#7th
+Q = int(input())
+if ((Q%5)+5)//7 == 0:
+    print('да')
+else:
+    print('нет')
+
+import random
+
+#8th
+num = []
+for i in range(1,201):
+    num.append(i)
+
+subseq = {1: 0}
+
+for i in range(2,201):
+    k = random.choice(num)
+    subseq[i] = k
+    num.remove(k)
+
+while True:
+    print(subseq.get(int(input())))
+    if input() == 'exit': break
+'''
