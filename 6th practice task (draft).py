@@ -1,4 +1,3 @@
-'''
 #1ts
 import math as m
 
@@ -119,4 +118,97 @@ for i in range(2,201):
 while True:
     print(subseq.get(int(input())))
     if input() == 'exit': break
-'''
+
+#9th
+import turtle as t
+import math as m
+
+def cle(xc, yc, r):
+    t.up()
+    t.pen(pencolor='orange', pensize=1)
+    t.setposition(xc, yc-r)
+    t.down()
+    t.circle(r)
+
+
+def main():
+    xc1 = int(input())
+    yc1 = int(input())
+    r1 = int(input())
+    xc2 = int(input())
+    yc2= int(input())
+    r2 = int(input())
+    cle(xc1, yc1, r1)
+    cle(xc2, yc2, r2)
+    dist = m.sqrt((xc2-xc1)**2+(yc2-yc1)**2)
+    print(dist)
+    if r1+r2 > dist:
+        print('Окружности имеют пересечение')
+
+    elif r1+r2 == dist:
+        print('Окружности имеют внешнее касание')
+    elif dist < max([r1, r2]):
+        print('Окружности лежат в друг друге, не касаясь')
+    elif dist == max([r1, r2])-min([r1, r2]):
+        print('Окружности внутренни касаются')
+    t.mainloop()
+
+if __name__ == '__main__':
+    main()
+
+import turtle as t
+import math as m
+
+
+#10th
+def square(x, y, x1, y1): #x,y - coordinates, l - length
+    t.up()
+    t.pen(pencolor='black', pensize=1) #settings of pen
+    t.setposition(x, y)
+    t.down()
+    t.forward(abs(x1)-abs(x))
+    t.right(90)
+    t.forward(abs(y1)-abs(y))
+    t.right(90)
+    t.forward(abs(x1)-abs(x))
+    t.right(90)
+    t.forward(abs(y1)-abs(y))
+    t.right(90)
+    t.up()
+
+
+def main():
+    x = int(input())
+    y = int(input())
+    x1 = int(input())
+    y1 = int(input())
+
+    xx = int(input())
+    yy = int(input())
+    xx1 = int(input())
+    yy1 = int(input())
+
+    square(x, y, x1, y1)
+    square(xx, yy, xx1, yy1)
+
+    size_0 = [abs(x1)-abs(x), abs(y1)-abs(y)]
+    size_1 = [abs(xx1)-abs(xx), abs(yy1)-abs(yy)]
+
+
+    if (abs(x-xx)>size_0[0]+size_1[0]) or (abs(y-yy)>size_0[1]+size_1[1]):
+        print('прямоугольники не пересекаются')
+    elif size_1[0] == abs(x-xx) and size_0[1]+size_1[1] >= abs(y-yy1):
+        print('прямоугольники касаются')
+    elif size_1[1] == abs(y - yy) and size_0[0] + size_1[0] >= abs(x - xx1):
+        print('прямоугольники касаются')
+    elif size_1[0] > abs(x-xx) and size_0[1]+size_1[1] >= abs(y-yy1):
+        print('прямоугольники пересекаются')
+    elif size_1[1] > abs(y - yy) and size_0[0] + size_1[0] >= abs(x - xx1):
+        print('прямоугольники пересекаются')
+    elif (x>xx and y>yy and size_0>size_1) or (x<xx and y<yy and size_0<size_1):
+        print('прямоугольники лежат друг в друге')
+
+    t.mainloop()
+
+if __name__ == '__main__':
+    main()
